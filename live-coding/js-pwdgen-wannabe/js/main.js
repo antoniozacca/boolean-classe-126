@@ -13,12 +13,13 @@ const favouriteColor = prompt('Inserisci il tuo colore preferito');
 const myNumber = '21'; //todo: generazione numero casuale (Bonus 2)
 
 // - definisco una variabile password e le assegno la concatenazione di firstName + lastName + favouriteColor + myNumber
-const myPassword = firstName + lastName + favouriteColor + myNumber;
+const myPassword = firstName + lastName + favouriteColor + myNumber; //GaetanoFrascollaVerde21
 // const passwordInterpolated = `${firstName}${lastName}${favouriteColor}${myNumber}`; //remind
 
 // - inserisco all'interno del dom il valore di password
-const htmlElement = document.getElementById('password');
-htmlElement.innerHTML = myPassword;
+const htmlElement = document.getElementById('password'); //p#password <p id="password">INNERHTML</p>
+
+htmlElement.innerHTML = myPassword; //<p id="password"></p> -> <p id="password"></p>;
 
 // Bonus 1: visualizzate le informazioni anche nella console del browser;
 console.log(myPassword);
