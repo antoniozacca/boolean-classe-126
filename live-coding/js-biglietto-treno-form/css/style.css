@@ -1,0 +1,18 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/********
+CSS DEFAULT
+********/
+
+#generate-app,
+#ticket-result {
+  padding: 2.5rem;
+}
+
+.hidden {
+  display: none;
+}

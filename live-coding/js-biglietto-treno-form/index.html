@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Biglietto Treno DOM</title>
+    <!-- custom css -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- /custom css -->
+  </head>
+  <body>
+    <div id="generate-app">
+      <form id="generate-ticket-form" action="">
+        <label for="user-name-input">Nome Passeggero</label>
+        <input type="text" id="user-name-input" />
+
+        <label for="age-input">Età</label>
+        <!-- <input type="number" id="age-input" /> -->
+        <select id="age-input">
+          <option value="default">Seleziona la tua età</option>
+          <option value="under">Minorenne</option>
+          <option value="standard">Maggiorenne</option>
+          <option value="over">Over 65</option>
+        </select>
+        <label for="km-input">Km</label>
+        <input type="number" id="km-input" />
+        <button id="generate-ticket">Genera</button>
+        <input id="reset-ticket" type="reset" value="Reset" />
+      </form>
+    </div>
+    <hr />
+
+    <div id="ticket-result" class="hidden pippo pluto paperino">
+      <h3>Nome Passeggero</h3>
+      <div id="user-name-output"></div>
+      <h3>Offerta</h3>
+      <div id="offer-output"></div>
+      <h3>Carrozza</h3>
+      <div id="car-output">5</div>
+      <h3>Codice CP</h3>
+      <div id="code-output">12345</div>
+      <h3>Costo biglietto</h3>
+      <div id="price-output">20.30€</div>
+    </div>
+
+    <!-- js -->
+    <script type="text/javascript" src="js/main.js"></script>
+    <!-- /js -->
+  </body>
+</html>
