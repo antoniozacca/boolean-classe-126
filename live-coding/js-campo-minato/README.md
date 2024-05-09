@@ -10,3 +10,24 @@ Per rendere il gioco più interessante, aggiungere una select accanto al bottone
 - con difficoltà 1 => 100 caselle, con un numero compreso tra 1 e 100, divise in 10 caselle per 10 righe;
 - con difficoltà 2 => 81 caselle, con un numero compreso tra 1 e 81, divise in 9 caselle per 9 righe;
 - con difficoltà 3 => 49 caselle, con un numero compreso tra 1 e 49, divise in 7 caselle per 7 righe;
+
+//switch
+
+a) creare HTML statico di base e CSS di base
+-- probabilmente la griglia di gioco non sarà presente in pagina al caricamento - solo il contenitore (board)
+-- sicuramente bottone (opzione: select livello)
+
+--utente clicca su bottone
+--- generare la griglia di gioco (opzionale: in base al livello scelto o con un livello predefinito)
+-- logica del gioco
+-- Quando l'utente clicca su ogni cella, la cella cliccata si colora di azzurro ed emetto un messaggio in console con il numero della cella cliccata.
+
+--campo minato (si avvia se clicco su bottone)
+--- genero griglia (portabile)
+--- logica del gioco (bingo)
+
+-- bingo (si avvia se clicco su bottone)
+---- genero griglia (portabile)
+---- logica gioco (bingo)
+
+cal

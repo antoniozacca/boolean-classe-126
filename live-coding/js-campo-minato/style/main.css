@@ -1,0 +1,80 @@
+/*****
+RESET
+*****/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/******
+COMMON
+******/
+
+body {
+  height: 100vh;
+}
+
+header,
+footer {
+  height: 70px;
+  background-color: lightsalmon;
+}
+
+main {
+  height: calc(100% - 140px);
+  background-color: lightgreen;
+  overflow: auto;
+}
+
+/******
+Header
+******/
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem;
+}
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem;
+}
+
+#board {
+  width: 600px;
+  height: 600px;
+  background-color: yellow;
+  margin: 20px auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+.cell {
+  background-color: antiquewhite;
+  outline: 1px solid black;
+}
+
+.cell-10 {
+  width: calc(100% / 10);
+  height: calc(100% / 10);
+}
+
+.cell-9 {
+  width: calc(100% / 9);
+  height: calc(100% / 9);
+}
+
+.cell-7 {
+  width: calc(100% / 7);
+  height: calc(100% / 7);
+}
+
+.cell-clicked {
+  background-color: aquamarine;
+}
