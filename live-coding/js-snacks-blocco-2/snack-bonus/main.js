@@ -1,16 +1,17 @@
 'use strict';
-// scrivere una funzione inserisciInTesta() che, dati un array A e un elemento E in input, resituisca un nuovo array B, con E in prima posizione e a seguire tutti gli elementi di A
+// scrivere una funzione inserisciInTesta() che, dati un array A e un elemento E in input, restituisca un nuovo array B, con E in prima posizione e a seguire tutti gli elementi di A
 
-const input = [];
+const input = [1];
+const element = 'ciao';
 
-function inserisciInTesta(input, element) {
-  let result = [element];
+console.log(inserisciInTesta(input, element));
 
-  for (let i = 0; i < input.length - 1; i++) {
-    result[i + 1] = input[i];
+function inserisciInTesta(parametroInput, parametroElement) {
+  let result = [parametroElement];
+
+  for (let i = 0; i < parametroInput.length; i++) {
+    result[i + 1] = parametroInput[i];
   }
 
   return result;
 }
-
-console.log(inserisciInTesta(input, 10));

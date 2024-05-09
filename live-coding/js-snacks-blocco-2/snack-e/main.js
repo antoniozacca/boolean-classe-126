@@ -1,10 +1,18 @@
 'use strict';
-// scrivere una funzione rimuoviDallaCoda() che, dato un array A in input, restituisca un nuovo array B, con tutti gli elementi dell'array A, tranne l'ultimo
+// scrivere una funzione rimuoviDallaTesta() che, dato un array A in input, restituisca un nuovo array B, con tutti gli elementi dell'array A, tranne il primo
 
-for (let index = 0; index < 10; index++) {
-  console.log(index);
-}
+const input = [1, 2, 3, 4, 5, 6, 7, 8];
+console.log(input);
+console.log(rimuoviDallaTesta(input));
 
-if (index === 10) {
-  console.log(index);
+function rimuoviDallaTesta(parametroInput) {
+  let result = [];
+  const inputLength = input.length;
+
+  for (let i = 1; i < inputLength; i++) {
+    // result[i - 1] = input[i];
+    result.push(parametroInput[i]);
+  }
+
+  return result;
 }
