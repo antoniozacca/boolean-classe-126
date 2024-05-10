@@ -90,19 +90,6 @@ function gameLogic(boardGame, cellsNumber) {
       play = false;
 
       scoreElement.innerText += ' - Hai perso!';
-
-      //svelo le bombe
-      const elementsInBoard = document.querySelectorAll('.cell');
-
-      for (let i = 0; i < elementsInBoard.length; i++) {
-        const boardElement = elementsInBoard[i];
-
-        const boardElementValue = parseInt(boardElement.innerText);
-
-        if (bombs.includes(boardElementValue)) {
-          boardElement.style.backgroundColor = 'red';
-        }
-      }
     } else {
       currentElement.style.backgroundColor = 'green';
 
@@ -113,6 +100,22 @@ function gameLogic(boardGame, cellsNumber) {
       if (score.length === cellsNumber - bombsNumber) {
         play = false;
         scoreElement.innerText += ' - Hai vinto!';
+      }
+    }
+
+    //svelo le bombe
+
+    if (!play) {
+      const elementsInBoard = document.querySelectorAll('.cell');
+
+      for (let i = 0; i < elementsInBoard.length; i++) {
+        const boardElement = elementsInBoard[i];
+
+        const boardElementValue = parseInt(boardElement.innerText);
+
+        if (bombs.includes(boardElementValue)) {
+          boardElement.style.backgroundColor = 'red';
+        }
       }
     }
   });
