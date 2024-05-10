@@ -58,6 +58,10 @@ footer {
 .cell {
   background-color: antiquewhite;
   outline: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
 .cell-10 {
@@ -77,4 +81,9 @@ footer {
 
 .cell-clicked {
   background-color: aquamarine;
+}
+
+.cell-2 {
+  width: calc(100% / 2);
+  height: calc(100% / 2);
 }
