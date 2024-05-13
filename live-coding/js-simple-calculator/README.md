@@ -19,6 +19,7 @@ aggiungere event listener al pulsante "=": quando si clicca su =, salvare il sec
 
 MILESTONE 4
 pulsante canc: cliccando il pulsante si resetta il calcolo
+
 :stella2: BONUS
 verificare che non si stia cercando di dividere per 0
 Se non avete completato il layout della calcolatrice potete usare il codice di partenza che vi invio in allegato.
