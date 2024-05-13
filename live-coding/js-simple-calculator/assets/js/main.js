@@ -17,8 +17,14 @@ console.log('calcolatrice');
 
 const result = document.getElementById('result');
 const numbers = document.querySelector('.numbers');
+const operators = document.querySelector('.operators');
+
+let myOperator; //risultato corrente
+let firstNumber; //primo numero
+let secondNumber; //secondo numero
 
 numbers.addEventListener('click', handleNumbers);
+operators.addEventListener('click', handleOperators);
 
 /******+*
  * Functions
@@ -36,4 +42,17 @@ function handleNumbers(event) {
     //concateno con il valore iniziale
     result.innerText += currentElement.innerText;
   }
+}
+
+function handleOperators(event) {
+  const currentElement = event.target;
+
+  //salvo operatore (data-set)
+  myOperator = currentElement.dataset.operator;
+
+  //salvo primo operando
+  firstNumber = result.innerText;
+
+  //resetto numero in alto
+  result.innerText = 0;
 }
