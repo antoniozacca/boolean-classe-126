@@ -21,17 +21,31 @@
 
 //caso 2 - con setTimeout
 
-let seconds = 10;
+// let seconds = 10;
 
-const clock = setInterval(printCountDown, 1000);
-setTimeout(stopCountDown, seconds * 1000);
+// const clock = setInterval(printCountDown, 1000);
+// setTimeout(stopCountDown, seconds * 1000);
 
-function printCountDown() {
-  console.log(seconds);
-  seconds--;
-}
+// function printCountDown() {
+//   console.log(seconds);
+//   seconds--;
+// }
 
-function stopCountDown() {
-  clearInterval(clock);
-  alert('Buon anno');
-}
+// function stopCountDown() {
+//   clearInterval(clock);
+//   alert('Buon anno');
+// }
+
+//parte contatore solo se non è gia definito un altro
+
+// const buttonStart = document.getElementById('start');
+// let counterId;
+// console.log(buttonStart);
+
+// buttonStart.addEventListener('click', function () {
+//   if (counterId !== undefined) return;
+
+//   counterId = setInterval(function () {
+//     console.log('intervallo');
+//   }, 1000);
+// });
