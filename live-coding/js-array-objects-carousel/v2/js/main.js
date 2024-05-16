@@ -35,18 +35,44 @@ const images = [
 */
 
 const items = document.querySelector('.items');
+const thumbs = document.querySelector('.thumbs');
 const title = document.querySelector('.content h2');
 console.log(title);
 const description = document.querySelector('.content p');
 let currentImage = 0;
-createElements();
+
+//crea le immagini grandi
+createElements('item', items);
+//crea le immagini piccole
+createElements('thumb', thumbs);
+
 setContent();
 const allItems = document.querySelectorAll('.item');
+const allThumbs = document.querySelectorAll('.thumb');
 const prev = document.querySelector('.prev');
 const next = document.querySelector('.next');
 
+thumbs.addEventListener('click', function (event) {
+  const parentElement = event.target.parentElement;
+
+  if (parentElement.classList.contains('thumb')) {
+    console.log('ho cliccato su immagine');
+    console.log(parentElement);
+
+    allItems[currentImage].classList.remove('active');
+    allThumbs[currentImage].classList.remove('active');
+
+    currentImage = parseInt(parentElement.dataset.index);
+    setContent();
+    allItems[currentImage].classList.add('active');
+    allThumbs[currentImage].classList.add('active');
+  }
+});
+
 prev.addEventListener('click', function () {
   allItems[currentImage].classList.remove('active');
+  allThumbs[currentImage].classList.remove('active');
+
   if (currentImage > 0) {
     currentImage--;
   } else {
@@ -54,10 +80,12 @@ prev.addEventListener('click', function () {
   }
   setContent();
   allItems[currentImage].classList.add('active');
+  allThumbs[currentImage].classList.add('active');
 });
 
 next.addEventListener('click', function () {
   allItems[currentImage].classList.remove('active');
+  allThumbs[currentImage].classList.remove('active');
   if (currentImage < allItems.length - 1) {
     currentImage++;
   } else {
@@ -65,15 +93,17 @@ next.addEventListener('click', function () {
   }
   setContent();
   allItems[currentImage].classList.add('active');
+  allThumbs[currentImage].classList.add('active');
 });
 
-function createElements() {
+function createElements(className = 'item', parentElement) {
   images.forEach((element, index, arr) => {
     console.log(element);
 
     const div = document.createElement('div');
     // div.className = 'item';
-    div.classList.add('item');
+    div.classList.add(className);
+    div.dataset.index = index; //<div data-index="1">
 
     if (index === currentImage) {
       div.classList.add('active');
@@ -87,7 +117,7 @@ function createElements() {
     console.log(image);
 
     div.append(image);
-    items.append(div);
+    parentElement.append(div);
   });
 }
 
@@ -98,3 +128,21 @@ function setContent() {
 
 // BONUS 1:
 // Aggiungere le thumbnails (sottoforma di miniatura) ed al click attivare l’immagine corrispondente.
+
+/*
+<div class="thumb active">
+  <img src="img/01.webp" alt="Title" />
+</div>
+<div class="thumb">
+  <img src="img/02.webp" alt="Title" />
+</div>
+<div class="thumb">
+  <img src="img/03.webp" alt="Title" />
+</div>
+<div class="thumb">
+  <img src="img/04.webp" alt="Title" />
+</div>
+<div class="thumb">
+  <img src="img/05.webp" alt="Title" />
+</div>
+*/
