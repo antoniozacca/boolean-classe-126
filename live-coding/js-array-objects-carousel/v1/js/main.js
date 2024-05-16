@@ -28,14 +28,6 @@ const images = [
   },
 ];
 
-/*
- Milestone 1:
-  Ora rimuoviamo i contenuti statici e usiamo l’array di oggetti letterali per popolare dinamicamente il carosello.
-  Al click dell'utente sulle frecce , l'immagine attiva diventerà visibile e dovremo aggiungervi titolo e testo.
-*/
-
-console.log(images);
-
 //elementi freccia
 const prev = document.querySelector('.prev');
 const next = document.querySelector('.next');
@@ -46,34 +38,27 @@ const image = document.querySelector('.item img');
 const title = document.querySelector('.content h2');
 const description = document.querySelector('.content p');
 
-console.log(image);
-
 let currentImage = 0;
-
 setCurrentImage();
 
 prev.addEventListener('click', function () {
-  console.log('ho cliccato su prev');
-
-  console.log(currentImage);
-  console.log(currentImage > 0);
-
   if (currentImage > 0) {
     currentImage--; //decremento immagine corrente
-    setCurrentImage();
+  } else {
+    currentImage = images.length - 1;
   }
+
+  setCurrentImage();
 });
 
 next.addEventListener('click', function () {
-  console.log('ho cliccato su next');
-
-  console.log(currentImage);
-  console.log(currentImage < images.length - 1);
-
   if (currentImage < images.length - 1) {
     currentImage++; //incremento immagine corrente
-    setCurrentImage();
+  } else {
+    currentImage = 0;
   }
+
+  setCurrentImage();
 });
 
 function setCurrentImage() {
