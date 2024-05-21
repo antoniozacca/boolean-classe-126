@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.red {
+  color: #cc0000;
+}
+
+.green {
+  color: green;
+}
+
+.blue {
+  color: blue;
+}
+
+.big {
+  font-size: 50px;
+}
+
+.container {
+  height: 100vh;
+}
+
+.bg-light {
+  background-color: antiquewhite;
+}
+
+.bg-dark {
+  background-color: gray;
+}

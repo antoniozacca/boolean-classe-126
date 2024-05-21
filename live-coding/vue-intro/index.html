@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo Vue</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div class="container" :class="bgStyle">
+        <h1 :class="color" class="big">{{ titoloPagina }}</h1>
+        <p>{{ testoPagina }}</p>
+        <p>I numeri preferiti dai marziano sono {{ prova }}</p>
+
+        <label for="input-vmodel">Prova V-Model</label>
+        <input type="text" id="input-vmodel" v-model="titoloPagina" />
+        <select name="" id="" v-model="color">
+          <option value="green">Verde</option>
+          <option value="red">Rosso</option>
+          <option value="blue">Blu</option>
+        </select>
+
+        <!-- <select name="bg-color" id="bg-color" v-model="bgStyle">
+          <option value="bg-light">Chiaro</option>
+          <option value="bg-dark">Scuro</option>
+        </select> -->
+
+        <button v-on:click="demo">Clicca sul bottone e cambiare colore</button>
+        <button @click="greetings">Cambia il saluto</button>
+      </div>
+    </div>
+
+    <!-- vue -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- /vue -->
+    <script src="main.js"></script>
+  </body>
+</html>
