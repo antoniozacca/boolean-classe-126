@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo V-FOR V-IF</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div id="app" v-cloak>
+      <h1>{{ title }}</h1>
+
+      <h2>V-IF</h2>
+
+      <div v-if="showDiv">
+        <h3>Ciao</h3>
+        <p>Ciao sono un div che può essere visualizzato</p>
+      </div>
+
+      <h4 v-else>Io vengo mostrato come alternativa</h4>
+
+      <h2>V-ELSE-IF</h2>
+
+      <div v-if="type === 'A'">A</div>
+      <div v-else-if="type === 'B'">B</div>
+      <div v-else-if="type === 'C'">C</div>
+
+      <select v-model="type">
+        <option value="">Selezione TIPO</option>
+        <option value="A">opzione A</option>
+        <option value="B">opzione B</option>
+        <option value="C">opzione C</option>
+        <option value="D">opzione D</option>
+      </select>
+
+      <h2>V-SHOW</h2>
+
+      <div v-show="1 ===1">Sono elemento mostrato in pagina</div>
+
+      <h2>V-FOR ARRAY</h2>
+      <ul>
+        <li v-for="qualunquecosa in friends">{{ qualunquecosa }}</li>
+      </ul>
+
+      <h2>V-FOR ARRAY OBJ</h2>
+      <ul>
+        <li v-for="(friend, index) in friendsObj">
+          {{ index }} - il nome è {{ friend['nome'] }} è l'età è {{ friend.eta
+          }}
+        </li>
+      </ul>
+
+      <h2>V-FOR RANGE</h2>
+      <div v-for="n in nLoops" v-show="n % 2 === 0">
+        Ciao sono un povero div {{ n }}
+      </div>
+
+      <h2>PROVA PROXY</h2>
+      <button @click="stampaOggetto">Stampa oggetto</button>
+    </div>
+
+    <!-- vue -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- js -->
+    <script src="js/main.js"></script>
+  </body>
+</html>
