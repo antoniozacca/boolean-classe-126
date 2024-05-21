@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Hello</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{ title }}</h1>
+
+      <p>{{ image }}</p>
+
+      <img :src="image" :alt="title" />
+      <div>
+        <input type="text" v-model="title" />
+      </div>
+
+      <div>
+        <button @click="prova">
+          Clicca qui per stampare in console il valore
+        </button>
+      </div>
+    </div>
+
+    <!-- vue -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- project js -->
+    <script src="js/main.js"></script>
+  </body>
+</html>
