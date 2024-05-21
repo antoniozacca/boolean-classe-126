@@ -1,7 +1,8 @@
 # JS Icons
 
-Realizzare un sistema di rappresentazione icone.
-Le icone presenti nella struttura dati fanno riferimento alla nota libreria Font Awesome, perciò come prima cosa assicuriamoci di aver inserito il link alla cdn nell'head della pagina.
+Realizzare un sistema di rappresentazione icone. prendendo spunto dal layout di riferimento.
+Le icone presenti nella struttura dati fanno riferimento alla nota libreria Font Awesome,
+perciò come prima cosa assicuriamoci di aver inserito il link alla cdn nell'head della pagina.
 
 Come possiamo usare i dati presenti nella nostra struttura dati per creare l'elemento html nel modo corretto e visualizzare l'icona in pagina?
 
