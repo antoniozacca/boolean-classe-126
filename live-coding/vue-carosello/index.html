@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Carosello</title>
+    <!-- css -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- /css -->
+  </head>
+  <body>
+    <div id="app" v-cloak>
+      <h1>{{ title }}</h1>
+      <div class="slider">
+        <div
+          class="slide"
+          v-for="(image, index) in images"
+          v-show="currentIndex === index"
+        >
+          <img :src="image" alt="" />
+        </div>
+        <button @click="prevImage">Prev</button>
+        <button @click="nextImage">Next</button>
+      </div>
+      <div class="thumbs">
+        <img
+          v-for="(image, index) in images"
+          :src="image"
+          @click="setImage(index)"
+        />
+      </div>
+    </div>
+
+    <!-- vue -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- js -->
+    <script src="js/main.js"></script>
+    <!-- /js -->
+  </body>
+</html>

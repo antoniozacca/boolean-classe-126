@@ -1,0 +1,32 @@
+[v-cloak] {
+  display: none;
+}
+.slider {
+  width: 700px;
+  height: 300px;
+  margin: 0 auto;
+}
+
+.slide {
+  width: 700px;
+  height: 300px;
+
+  background-color: red;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.thumbs {
+  width: 200px;
+  height: 100px;
+}
+
+.thumbs img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
