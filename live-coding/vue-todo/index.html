@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDo List</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{ title }}</h1>
+
+      <section>
+        <h2>Cerca</h2>
+        <label for="search-task">Cerca un task</label>
+
+        <input type="text" id="search-task" v-model="searchTask" />
+      </section>
+      <hr />
+      <section>
+        <label for="input-task">Inserisci un task</label>
+        <input
+          type="text"
+          id="input-task"
+          v-model="newTask"
+          @keyup.enter="addTask"
+        />
+        <button @click="addTask">Aggiungi</button>
+      </section>
+
+      <hr />
+
+      <section>
+        <ul>
+          <li v-for="(task, index) in listTasks()" :key="`task-${index}`">
+            <!-- <span style="text-decoration: line-through">{{ task['text']}}</span> -->
+
+            <!-- v-model="task.done" -->
+            <span :class="{done: task.done}" @click="toggleTask(index)"
+              >{{ index }} - {{ task['text']}}</span
+            >
+            <button @click="removeTask(index)">x</button>
+          </li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- vue -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- js -->
+    <script src="js/main.js"></script>
+  </body>
+</html>
