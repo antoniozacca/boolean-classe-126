@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <title>Vue Shopping Cart</title>
+  </head>
+  <body>
+    <div id="app">
+      <div class="card">
+        <div class="image">
+          <img
+            :src="`assets/img/product/${product.colors[currentColor]}.png`"
+            alt="Prodotto"
+          />
+        </div>
+
+        <div class="detail">
+          <h1 class="title">{{ calculateName() }}</h1>
+          <p class="price">€ {{ calculatePrice() }}</p>
+
+          <h3>Colore:</h3>
+          <ul class="colors">
+            <!-- color item -->
+            <li
+              v-for="(color, index) in product.colors"
+              class="color"
+              :class="{selected: index === currentColor}"
+              :style="`background-color: ${color}`"
+              @click="changeColor(index)"
+            ></li>
+            <!-- /color item -->
+            <!-- color item -->
+            <!-- <li class="color" style="background-color: blue"></li> -->
+            <!-- /color item -->
+            <!-- color item -->
+            <!-- <li class="color" style="background-color: green"></li> -->
+            <!-- /color item -->
+            <!-- color item -->
+            <!-- <li class="color" style="background-color: purple"></li> -->
+            <!-- /color item -->
+          </ul>
+
+          <h3>Memoria:</h3>
+          <div class="sizes">
+            <!-- single memory option -->
+            <div v-for="(option, index) in product.options">
+              <input
+                type="radio"
+                name="size"
+                :id="option.text"
+                :value="index"
+                v-model.number="currentOption"
+              /><label :for="option.text">{{ option.text }}</label>
+            </div>
+            <!-- <div>
+              <input
+                type="radio"
+                name="size"
+                id="256 GB"
+                value="256 GB"
+              /><label for="256 GB">256 GB</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="size"
+                id="512 GB"
+                value="512 GB"
+                checked
+              /><label for="512 GB">512 GB</label>
+            </div> -->
+            <!-- /single memory option -->
+          </div>
+
+          <div class="purchase" @click="addToCart">Aggiungi al carrello</div>
+        </div>
+
+        <span class="total" @click="changeCartPage"
+          >Totale: <strong>€ 0.00</strong></span
+        >
+      </div>
+
+      <div class="sidebar" :class="{'is-hidden': isCartHidden}">
+        <div class="items" v-if="cart.length">
+          <div class="item" v-for="item in cart">
+            <div>
+              <p>{{ item.name }}</p>
+              <p class="quantity">{{item.quantity}} x € {{item.price}}</p>
+              <span class="remove">x</span>
+            </div>
+          </div>
+
+          <div class="subtotal">Totale: <span>€ 0.00</span></div>
+        </div>
+        <div v-else>
+          <img src="assets/img/cart-empty.png" alt="Carrello vuoto" />
+          <p>Il carrello è vuoto</p>
+        </div>
+      </div>
+
+      <div class="overlay" :class="{'is-hidden': true}"></div>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>
