@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo Axios</title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- <div v-if="beers.length">
+        <ul v-for="beer in beers">
+          <li>{{ beer.name }}</li>
+        </ul>
+      </div>
+      <h3 v-else>Caricamento birre in corso...</h3> -->
+
+      <h2 v-if="userNumber > cpuNumber">Vince Utente</h2>
+      <h2 v-else-if="cpuNumber > userNumber">Vince Computer</h2>
+      <h2 v-else>Pareggio</h2>
+    </div>
+    <!-- vue -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- main -->
+    <script src="main.js"></script>
+  </body>
+</html>
