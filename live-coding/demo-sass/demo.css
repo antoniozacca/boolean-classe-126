@@ -1,0 +1,116 @@
+/*******
+VARIABILI E ANNIDAMENTO
+*******/
+#main {
+  font-size: 12px;
+  color: #333;
+}
+#main a {
+  color: #999;
+}
+
+.link {
+  color: #333;
+}
+.link:hover {
+  color: blue;
+}
+.link p span.magic-span {
+  color: green;
+}
+
+/*******
+MIXIN
+*******/
+.div_1 {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.container_big {
+  margin: 0 auto;
+  width: 1000px;
+  border: 1px solid black;
+}
+
+.container_medium {
+  margin: 0 auto;
+  width: 780px;
+  border: 1px solid black;
+}
+
+.container_small {
+  margin: 0 auto;
+  width: 520px;
+  border: 1px solid black;
+}
+
+/* This CSS will print because %message-shared is extended. */
+.warning, .error, .success, .message {
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #333;
+}
+
+.success {
+  border-color: green;
+}
+
+.error {
+  border-color: red;
+}
+
+.warning {
+  border-color: yellow;
+}
+
+/*******
+MIXIN e ISTRUZIONI CONDIZIONALI
+*******/
+.next {
+  height: 0;
+  width: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 2.5px;
+  border-top-color: black;
+}
+
+/*******
+CICLO FOR
+*******/
+ul:nth-child(3n+1) {
+  background-color: #004080;
+}
+
+ul:nth-child(3n+2) {
+  background-color: #004d99;
+}
+
+ul:nth-child(3n+3) {
+  background-color: #0059b3;
+}
+
+/*******
+EACH (TIPO IL FOREACH)
+*******/
+.icon-40px {
+  font-size: 40px;
+  height: 40px;
+  width: 40px;
+}
+
+.icon-50px {
+  font-size: 50px;
+  height: 50px;
+  width: 50px;
+}
+
+.icon-80px {
+  font-size: 80px;
+  height: 80px;
+  width: 80px;
+}
+
+/*# sourceMappingURL=demo.css.map */

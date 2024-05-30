@@ -1,0 +1,155 @@
+@use 'sass:math';
+
+/*******
+VARIABILI E ANNIDAMENTO
+*******/
+
+$text-size: 12px;
+$text-color: #333;
+$link-color: #999;
+
+#main {
+  font-size: $text-size;
+  color: $text-color;
+
+  a {
+    color: $link-color;
+  }
+}
+
+.link {
+  color: $text-color;
+
+  &:hover {
+    color: blue;
+  }
+
+  p {
+    span {
+      &.magic-span {
+        color: green;
+      }
+    }
+  }
+}
+
+/*******
+MIXIN
+*******/
+
+@mixin my-display-flex {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+.div_1 {
+  @include my-display-flex;
+  // other rules
+}
+
+@mixin container($width: 1000px) {
+  margin: 0 auto;
+  width: $width;
+  border: 1px solid black;
+}
+
+.container_big {
+  @include container();
+}
+
+.container_medium {
+  @include container($width: 780px);
+}
+
+.container_small {
+  @include container($width: 520px);
+}
+
+/* This CSS will print because %message-shared is extended. */
+%message-shared {
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #333;
+}
+
+// This CSS won't print because %equal-heights is never extended.
+%equal-heights {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.message {
+  @extend %message-shared;
+}
+
+.success {
+  @extend %message-shared;
+  border-color: green;
+}
+
+.error {
+  @extend %message-shared;
+  border-color: red;
+}
+
+.warning {
+  @extend %message-shared;
+  border-color: yellow;
+}
+
+/*******
+MIXIN e ISTRUZIONI CONDIZIONALI
+*******/
+
+@mixin triangle($size, $color, $direction) {
+  height: 0;
+  width: 0;
+
+  border-color: transparent;
+  border-style: solid;
+  border-width: math.div($size, 2);
+
+  @if $direction == up {
+    border-bottom-color: $color;
+  } @else if $direction == right {
+    border-left-color: $color;
+  } @else if $direction == pippo {
+    border-top-color: $color;
+  } @else if $direction == left {
+    border-right-color: $color;
+  } @else if $direction == #000 {
+    border-right-color: green;
+  } @else {
+    @error "Unknown direction #{$direction}.";
+  }
+}
+
+.next {
+  @include triangle(5px, black, pippo);
+}
+
+/*******
+CICLO FOR
+*******/
+
+$base-color: #036;
+
+@for $i from 1 through 3 {
+  ul:nth-child(3n + #{$i}) {
+    background-color: lighten($base-color, $i * 5%);
+  }
+}
+
+/*******
+EACH (TIPO IL FOREACH)
+*******/
+
+$sizes: 40px, 50px, 80px;
+
+@each $size in $sizes {
+  .icon-#{$size} {
+    font-size: $size;
+    height: $size;
+    width: $size;
+  }
+}
