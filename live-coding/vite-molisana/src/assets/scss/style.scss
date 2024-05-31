@@ -1,0 +1,15 @@
+// @import './partials/reset';
+@use './partials/reset' as *;
+@use './partials/variables' as *;
+@use './partials/mixin' as *;
+@use './partials/utils' as *;
+@use './partials/typography' as *;
+
+body {
+  background-color: $body-bg-color;
+}
+
+// .container {
+//   max-width: 1140px;
+//   margin: 0 auto;
+// }
