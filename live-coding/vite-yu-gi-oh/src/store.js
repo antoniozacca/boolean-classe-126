@@ -1,7 +1,17 @@
 import { reactive } from 'vue';
 
 export const store = reactive({
-  data: [],
-  meta: {},
-  apiUrl: 'https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0',
+  data: [], //risultati delle cards
+  meta: {}, //risultato con info relative alla paginazione
+
+  apiInfo: {
+    url: 'https://db.ygoprodeck.com/api/v7/',
+    resultNumber: 10,
+    offsetNumber: 0,
+    endpoints: {
+      cards: 'cardinfo.php',
+      archetypes: 'archetypes.php',
+      checkDBVersion: 'checkDBVer.php',
+    },
+  },
 });

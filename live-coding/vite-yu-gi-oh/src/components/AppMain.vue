@@ -15,16 +15,27 @@ export default {
       store,
     };
   },
+  methods: {
+    searchCards() {
+      axios
+        .get(this.store.apiInfo.url + this.store.apiInfo.endpoints.cards, {
+          params: {
+            num: this.store.apiInfo.resultNumber,
+            offset: this.store.apiInfo.offsetNumber,
+          },
+        })
+        .then((response) => {
+          this.store.data = response.data.data;
+          this.store.meta = response.data.meta;
+
+          // console.log(response.data);
+          // console.log(this.store.results);
+        });
+    },
+  },
   created() {
     console.log('chiama api di yu-gi-oh');
-
-    axios.get(this.store.apiUrl).then((response) => {
-      this.store.data = response.data.data;
-      this.store.meta = response.data.meta;
-
-      // console.log(response.data);
-      // console.log(this.store.results);
-    });
+    this.searchCards();
   },
 };
 </script>
