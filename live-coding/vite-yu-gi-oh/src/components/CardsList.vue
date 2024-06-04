@@ -12,7 +12,7 @@ export default {
 
 <template>
   <div>
-    <ul>
+    <ul class="list-unstyled">
       <li v-for="card in store.data">{{ card.name }}</li>
     </ul>
   </div>

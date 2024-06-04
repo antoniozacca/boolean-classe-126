@@ -5,7 +5,7 @@ export default {
 </script>
 
 <template>
-  <header>
+  <header class="py-3">
     <div class="container">
       <div>LOGO - Yu-Gi-Oh</div>
     </div>

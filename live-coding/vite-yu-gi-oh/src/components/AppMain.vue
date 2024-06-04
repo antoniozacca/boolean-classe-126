@@ -44,7 +44,7 @@ export default {
   <main>
     <div class="container">
       <div>ricerca</div>
-      <CardsFound />
+      <CardsFound class="py-3" />
       <CardsList />
     </div>
   </main>
