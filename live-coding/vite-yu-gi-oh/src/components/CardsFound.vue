@@ -12,5 +12,7 @@ export default {
 </script>
 
 <template>
-  <div>{{ store.meta.total_rows }} Risultati trovati</div>
+  <div class="alert alert-info" role="alert">
+    {{ store.meta.total_rows }} Risultati trovati
+  </div>
 </template>

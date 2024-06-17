@@ -1,7 +1,11 @@
 <script>
+import CardElement from './CardElement.vue';
 import { store } from '../store';
 export default {
   name: 'CardsList',
+  components: {
+    CardElement,
+  },
   data() {
     return {
       store,
@@ -11,9 +15,13 @@ export default {
 </script>
 
 <template>
-  <div>
-    <ul class="list-unstyled">
-      <li v-for="card in store.data">{{ card.name }}</li>
-    </ul>
+  <div class="row">
+    <div class="col-12 col-md-4 col-lg-3" v-for="card in store.data">
+      <CardElement
+        :image="card.card_images[0].image_url_small"
+        :name="card.name"
+        :type="card.archetype"
+      />
+    </div>
   </div>
 </template>
