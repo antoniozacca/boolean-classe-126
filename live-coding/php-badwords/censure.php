@@ -1,5 +1,18 @@
 <?php
 
+//esempi di GET, POST, REQUEST e die()
+
+// var_dump($_POST);
+// var_dump($_GET);
+//MANICA MOOOOOOLTO LARGA
+// var_dump($_REQUEST);
+
+// $ric = 'Sono il testo del die';
+
+// die($ric);
+
+
+
 //paragrafo con parole da censurare
 $my_text = $_GET['my-text'];
 #parola da censurare

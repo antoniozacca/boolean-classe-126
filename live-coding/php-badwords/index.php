@@ -23,6 +23,13 @@
 
     <hr />
 
+    <div>
+      <div><label for="password">Password</label></div>
+      <input type="password" name="password" />
+    </div>
+
+    <hr />
+
     <button>Invia i dati</button>
   </form>
 </body>
