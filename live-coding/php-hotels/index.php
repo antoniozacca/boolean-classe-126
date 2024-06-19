@@ -1,5 +1,7 @@
 <?php
 
+// var_dump($_GET);
+
 $hotels = [
 
     [
@@ -40,6 +42,30 @@ $hotels = [
 
 ];
 
+$filtered_hotels = $hotels;
+
+//ricerca
+
+$has_parking = !empty($_GET['has-parking']); //true / false
+
+
+//ricerca per parcheggio
+if ($has_parking) {
+    $temp_hotels = [];
+
+    foreach ($filtered_hotels as $hotel) {
+        if ($hotel['parking'] === true) {
+            $temp_hotels[] = $hotel;
+            // array_push($temp_hotels, $hotel);
+        }
+    }
+
+    $filtered_hotels = $temp_hotels;
+}
+
+
+
+
 // var_dump($hotels);
 
 ?>
@@ -70,9 +96,41 @@ $hotels = [
     <main>
         <!-- lista hotel -->
         <div class="container  p-3">
-            <!-- versione lista ul -->
-            <!-- <ul>
-                <?php foreach ($hotels as $hotel) : ?>
+
+
+            <section id="hotels-search">
+                <form action="index.php" method="GET">
+                    <div class="row align-items-center">
+
+                        <div class="col-auto">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="has-parking" name="has-parking" value="1" <?php if ($has_parking) : ?> checked <?php endif; ?>>
+
+
+
+                                <label class=" form-check-label" for="has-parking">
+                                    Solo hotels con parcheggio
+                                </label>
+                            </div>
+                        </div>
+                        <!-- <div class="col">
+                        <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+                    </div> -->
+                        <div class="col">
+                            <button class="btn btn-primary btn-sm">Cerca</button>
+                        </div>
+
+                    </div>
+                </form>
+            </section>
+
+
+            <hr>
+
+            <section id="hotels-list">
+                <!-- versione lista ul -->
+                <!-- <ul>
+                <?php foreach ($filtered_hotels as $hotel) : ?>
                     <li>
                         <h2><?php echo $hotel['name']; ?></h2>
                         <div><?php echo $hotel['description']; ?></div>
@@ -82,33 +140,33 @@ $hotels = [
                     </li>
                 <?php endforeach; ?>
             </ul> -->
-            <!-- /versione lista ul -->
-            <!-- versione tabella -->
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">Nome</th>
-                        <th scope="col">Descrizione</th>
-
-                        <th scope="col">Voto</th>
-                        <th scope="col">Parcheggio</th>
-                        <th scope="col">Distanza</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($hotels as $hotel) : ?>
+                <!-- /versione lista ul -->
+                <!-- versione tabella -->
+                <table class="table table-striped">
+                    <thead>
                         <tr>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Descrizione</th>
+
+                            <th scope="col">Voto</th>
+                            <th scope="col">Parcheggio</th>
+                            <th scope="col">Distanza</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($filtered_hotels as $hotel) : ?>
                             <td><?php echo $hotel['name']; ?></td>
                             <td><?php echo $hotel['description']; ?></td>
 
                             <td><?php echo $hotel['vote']; ?></td>
                             <td><?php echo $hotel['parking'] ? 'si' : 'no'; ?></td>
                             <td><?php echo $hotel['distance_to_center']; ?> km</td>
-                        </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
-            <!-- /versione tabella -->
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+                <!-- /versione tabella -->
+            </section>
         </div>
         <!-- /lista hotel -->
     </main>
