@@ -50,31 +50,35 @@ $vote = intval($_GET['vote'] ?? '0'); //int
 
 //ricerca per parcheggio
 if ($has_parking) {
-    $temp_hotels = [];
+    // $temp_hotels = [];
 
-    foreach ($filtered_hotels as $hotel) {
-        if ($hotel['parking'] === true) {
-            $temp_hotels[] = $hotel;
-            // array_push($temp_hotels, $hotel);
-        }
-    }
+    // foreach ($filtered_hotels as $hotel) {
+    //     if ($hotel['parking'] === true) {
+    //         $temp_hotels[] = $hotel;
+    //         // array_push($temp_hotels, $hotel);
+    //     }
+    // }
 
-    $filtered_hotels = $temp_hotels;
+    // $filtered_hotels = $temp_hotels;
+
+    $filtered_hotels = array_filter($filtered_hotels, fn ($hotel) => $hotel['parking'] === true);
 }
 
 //ricerca per voto
 if ($has_vote) {
 
-    $temp_hotels = [];
+    // $temp_hotels = [];
 
-    foreach ($filtered_hotels as $hotel) {
-        if ($hotel['vote'] >= intval($vote)) {
-            $temp_hotels[] = $hotel;
-            // array_push($temp_hotels, $hotel);
-        }
-    }
+    // foreach ($filtered_hotels as $hotel) {
+    //     if ($hotel['vote'] >= intval($vote)) {
+    //         $temp_hotels[] = $hotel;
+    //         // array_push($temp_hotels, $hotel);
+    //     }
+    // }
 
-    $filtered_hotels = $temp_hotels;
+    // $filtered_hotels = $temp_hotels;
+
+    $filtered_hotels = array_filter($filtered_hotels, fn ($hotel) => $hotel['vote'] >= intval($vote));
 }
 
 
