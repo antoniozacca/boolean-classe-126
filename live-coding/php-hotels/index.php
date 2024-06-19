@@ -50,23 +50,47 @@ $hotels = [
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PHP Hotels</title>
+    <!-- bootstrap -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- /bootstrap -->
+
 </head>
 
 <body>
-    <h1>Hotels</h1>
-    <!-- lista hotel -->
-    <ul>
-        <?php foreach ($hotels as $hotel) : ?>
-            <li>
-                <h2><?php echo $hotel['name']; ?></h2>
-                <div><?php echo $hotel['description']; ?></div>
-                <div>Parking: <?php echo $hotel['parking'] ? 'si' : 'no'; ?></div>
-                <div>Vote: <?php echo $hotel['vote']; ?></div>
-                <div>Distance: <?php echo $hotel['distance_to_center']; ?> km</div>
-            </li>
-        <?php endforeach; ?>
-    </ul>
-    <!-- /lista hotel -->
+
+    <header>
+        <div class="container text-center p-3">
+            <h1>Hotels</h1>
+        </div>
+
+    </header>
+
+    <main>
+        <!-- lista hotel -->
+        <div class="container  p-3">
+            <ul>
+                <?php foreach ($hotels as $hotel) : ?>
+                    <li>
+                        <h2><?php echo $hotel['name']; ?></h2>
+                        <div><?php echo $hotel['description']; ?></div>
+                        <div>Parking: <?php echo $hotel['parking'] ? 'si' : 'no'; ?></div>
+                        <div>Vote: <?php echo $hotel['vote']; ?></div>
+                        <div>Distance: <?php echo $hotel['distance_to_center']; ?> km</div>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+        <!-- /lista hotel -->
+    </main>
+
+    <footer>
+        <div class="container text-center p-3">
+            Hotels by classe 126
+        </div>
+    </footer>
+
 </body>
 
 </html>
