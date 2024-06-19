@@ -70,7 +70,8 @@ $hotels = [
     <main>
         <!-- lista hotel -->
         <div class="container  p-3">
-            <ul>
+            <!-- versione lista ul -->
+            <!-- <ul>
                 <?php foreach ($hotels as $hotel) : ?>
                     <li>
                         <h2><?php echo $hotel['name']; ?></h2>
@@ -80,7 +81,34 @@ $hotels = [
                         <div>Distance: <?php echo $hotel['distance_to_center']; ?> km</div>
                     </li>
                 <?php endforeach; ?>
-            </ul>
+            </ul> -->
+            <!-- /versione lista ul -->
+            <!-- versione tabella -->
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Descrizione</th>
+
+                        <th scope="col">Voto</th>
+                        <th scope="col">Parcheggio</th>
+                        <th scope="col">Distanza</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($hotels as $hotel) : ?>
+                        <tr>
+                            <td><?php echo $hotel['name']; ?></td>
+                            <td><?php echo $hotel['description']; ?></td>
+
+                            <td><?php echo $hotel['vote']; ?></td>
+                            <td><?php echo $hotel['parking'] ? 'si' : 'no'; ?></td>
+                            <td><?php echo $hotel['distance_to_center']; ?> km</td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+            <!-- /versione tabella -->
         </div>
         <!-- /lista hotel -->
     </main>
