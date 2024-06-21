@@ -11,6 +11,10 @@ $todos = json_decode($data, true);
 //result default - tutti i todo
 $result = $todos;
 
+if ($result) {
+  //result edulcorato
+  $result = array_map('getTodosForList', $result);
+}
 
 //CRUD - READ
 
@@ -44,9 +48,8 @@ if (isset($_POST['action']) && $_POST['action'] === 'create') {
   }
   //salvataggio del dato
   file_put_contents($database_file, json_encode($result));
+  $result = array_map('getTodosForList', $result);
 }
-
-
 
 //CRUD - UPDATE
 if (isset($_GET['action']) && $_GET['action'] === 'update') {
@@ -56,15 +59,6 @@ if (isset($_GET['action']) && $_GET['action'] === 'update') {
 if (isset($_GET['action']) && $_GET['action'] === 'delete') {
 }
 
-
-
-
 header('Content-Type: application/json');
-
-if ($result) {
-  //result edulcorato
-  $result = array_map('getTodosForList', $result);
-}
-
 
 echo json_encode($result);
