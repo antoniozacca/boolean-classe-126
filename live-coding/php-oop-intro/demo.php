@@ -1,26 +1,6 @@
 <?php
 
 
-
-// throw new Exception('ciao classe 126');
-
-
-// class Exception {
-
-//   private string $message;
-
-//   public function __construct($text)
-//   {
-//     $this->message = $text;
-//   }
-
-//   public function getMessage(){
-//     return $this->message;
-//   }
-
-// }
-
-
 function mult($num)
 {
 
