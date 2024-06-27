@@ -6,6 +6,7 @@ class Movie
 
   private string $title;
   private int $year;
+  // private ?Genre $genre = null;
   private array $genre = [];
   private int $vote;
   private string $logline;
@@ -52,11 +53,17 @@ class Movie
     return $this->genre;
   }
 
-  public function setGenre(string ...$genre): void
-  {
+  // public function setGenre(string ...$genre): void
+  // {
 
-    $this->genre = [...$this->genre, ...$genre];
+  //   $this->genre = [...$this->genre, ...$genre];
+  // }
+
+  public function setGenre(array $genre)
+  {
+    $this->genre = $genre;
   }
+
 
   public function getVote(): int
   {
@@ -81,5 +88,21 @@ class Movie
   public function setLogline(string $logline): void
   {
     $this->logline = $logline;
+  }
+
+  public function getAllgenres()
+  {
+
+    if (count($this->genre)) {
+
+
+
+      $genres = array_map(fn ($genre) => $genre->getName(), $this->genre);
+
+
+      return implode(', ', $genres);
+    } else {
+      return null;
+    }
   }
 }

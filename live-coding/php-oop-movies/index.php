@@ -1,20 +1,28 @@
 <?php
 require_once __DIR__ . '/Models/Movie.php';
+require_once __DIR__ . '/Models/Genre.php';
 
 //logica di creazione dati applicativo
 
 $error = '';
 
 try {
+
+  // $genere1 = new Genre('prova1');
+
   $movie1 = new Movie("Titolo 1", 2000, 8);
   $movie2 = new Movie("Titolo 2", 1994, 5);
   $movie1->setVote(6);
-  $movie1->setGenre('Horror', 'Comedy', 'Test');
+  $movie1->setGenre([new Genre('Horror'), new Genre('Comedy')]);
   $movie2->setVote(5);
-  $movie2->setGenre('Biopic', 'War');
+  // $movie2->setGenre(new Genre('Biopic'));
   //1000 loc
-  $movie2->setGenre('Prova aggiunta dopo');
+  // $movie2->setGenre('Prova aggiunta dopo');
   $movies_list = [$movie1, $movie2];
+
+
+
+  var_dump($movies_list);
 } catch (Exception $error) {
 
   $error = $error->getMessage();
@@ -44,11 +52,7 @@ try {
             <h3><?php echo $movie->getTitle(); ?></h3>
             <p>Vote: <?php echo $movie->getVote(); ?></p>
             <p>Year: <?php echo $movie->getYear(); ?></p>
-            <?php if (count($movie->getGenre())) : ?>
-              <?php foreach ($movie->getGenre() as $genre) : ?>
-                <p>Genre:<?php echo $genre; ?> </p>
-              <?php endforeach; ?>
-            <?php endif; ?>
+            <p>Genre: <?php echo $movie->getAllgenres(); ?></p>
           </div>
 
         </li>
