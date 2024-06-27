@@ -1,105 +1,112 @@
 <?php
 
-require_once __DIR__.'/Category.php';
-require_once __DIR__.'/../Traits/Name.php';
+require_once __DIR__ . '/Category.php';
 
-class Product {
+class Product
+{
 
-  use Name {
-    get_name as get_name_redi_brucia_computer;
+  private string $name;
+  private float $price = 0;
+  private ?string $description = null;
+  private Category $category;
+  protected string $type = '';
+
+
+  //se passo i parametri eseguo una certa logica
+  public function __construct(string $name, Category $category)
+  {
+    // $this->name = $name;
+    $this->setName($name);
+    $this->setCategory($category);
+    //metodi di debug o di controllo specifici
   }
 
-  private $id;
-  // private $name;
-  private $description;
-  private $category;
-  private $price;
-  private $image;
-  private $is_available;
- 
 
-  public function __construct($_id, $_name, Category $_category){
 
-    $this->set_id($_id);
-    $this->set_name($_name);
-    $this->set_category($_category);
 
+
+  /**
+   * Get the value of name
+   */
+  public function getName(): string
+  {
+    return $this->name;
   }
 
-  //getters
-
-  public function get_id(){
-    return $this->id;
+  /**
+   * Set the value of name
+   *
+   * @return  self
+   */
+  public function setName(string $name): void
+  {
+    $this->name = $name;
   }
-  // public function get_name(){
-  //   return $this->name;
-  // }
-  public function get_description(){
+
+  /**
+   * Get the value of price
+   */
+  public function getPrice(): float
+  {
+    return $this->price;
+  }
+
+  /**
+   * Set the value of price
+   *
+   * @return  self
+   */
+  public function setPrice(float $price): void
+  {
+    $this->price = $price;
+  }
+
+  /**
+   * Get the value of description
+   */
+  public function getDescription(): ?string
+  {
     return $this->description;
   }
-  public function get_category(){
+
+  /**
+   * Set the value of description
+   *
+   * @return  self
+   */
+  public function setDescription(string $description): void
+  {
+    $this->description = $description;
+  }
+
+  /**
+   * Get the value of category
+   */
+  public function getCategory(): Category
+  {
     return $this->category;
   }
-  public function get_price(){
-      try {
-            throw new Exception('Scherzettooooo');
-      } catch (Exception $e) {
-        return 'Errore Gestito';
-      }
 
-    return 'Ciao sono il prezzo';
-  }
-  public function get_image(){
-    return $this->image;
-  }
-  public function get_is_available(){
-    return $this->is_available;
+  /**
+   * Set the value of category
+   *
+   * @return  self
+   */
+  public function setCategory(Category $category): void
+  {
+    $this->category = $category;
   }
 
-  //setters
-
-  public function set_id($_id){
-
-  try {
-            throw new Exception('Scherzettooooo');
-      } catch (Exception $e) {
-        return 'Errore Gestito';
-      }
-
-
-    $this->id = $_id;
+  /**
+   * Get the value of type
+   */
+  public function getType()
+  {
+    return $this->type;
   }
 
-  //   public function set_name($_name){
-  //   $this->name = $_name;
-  // }
-
-  public function set_description($_description){
-    $this->description = $_description;
-  }
-
-    public function set_category($_category){
-    $this->category = $_category;
-  }
-
-    public function set_price($_price){
-    $this->price = $_price;
-  }
-
-    public function set_image($_image){
-    $this->image = $_image;
-  }
-
-  public function set_is_available($_is_available){
-    $this->is_available = $_is_available;
-  }
-
-  public function get_product_type(){
+  public function getCurrentType()
+  {
     return get_class($this);
   }
-
-  public function get_name(){
-    return "Product: {$this->get_name_redi_brucia_computer()}";
-  }
-
 }

@@ -1,36 +1,70 @@
 <?php
-require_once __DIR__ .'/Product.php';
-require_once __DIR__ .'/Category.php';
 
-class Food extends Product {
+require_once __DIR__ . '/Product.php';
 
-  private $ingredients;
-  private $expiration_date;
-  private $is_gluten_free;
-  private $is_vegan;
-  
+class Food extends Product
+{
+  private ?string $ingredients = null;
+  private bool $isVegan = false;
+  private ?string $expirationDate = null;
 
-  public function __construct($_id, $_name, Category $_category, $ingredients){
-    parent::__construct($_id, $_name, $_category);
-    $this->set_ingredients($ingredients);
+  /**
+   * Get the value of expirationDate
+   */
+  public function getExpirationDate()
+  {
+    return $this->expirationDate;
   }
 
-  public function set_ingredients($_ingredients){
+  /**
+   * Set the value of expirationDate
+   *
+   * @return  self
+   */
+  public function setExpirationDate($expirationDate)
+  {
+    $this->expirationDate = $expirationDate;
 
-    $this->ingredients = $_ingredients;
+    return $this;
   }
 
-  public function get_ingredients(){
-    //se utente è daniele
+  /**
+   * Get the value of isVegan
+   */
+  public function getIsVegan()
+  {
+    return $this->isVegan;
+  }
+
+  /**
+   * Set the value of isVegan
+   *
+   * @return  self
+   */
+  public function setIsVegan($isVegan)
+  {
+    $this->isVegan = $isVegan;
+
+    return $this;
+  }
+
+  /**
+   * Get the value of ingredients
+   */
+  public function getIngredients()
+  {
     return $this->ingredients;
-    //else
-    //return 'non sei autorizzato a vedere gli ingredienti'
   }
 
-  public function get_name(){
-    return "Food: {$this->get_name_redi_brucia_computer()}";
+  /**
+   * Set the value of ingredients
+   *
+   * @return  self
+   */
+  public function setIngredients($ingredients)
+  {
+    $this->ingredients = $ingredients;
+
+    return $this;
   }
-
-
-
 }

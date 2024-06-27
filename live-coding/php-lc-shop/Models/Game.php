@@ -1,38 +1,18 @@
 <?php
-require_once __DIR__ .'/Product.php';
 
-class Game extends Product {
+require_once __DIR__ . '/Product.php';
 
-  private $material;
-  private $age;
-  private $size;
+class Game extends Product
+{
 
 
-  public function set_material($_material){
-    $this->material = $_material;
+  private int $minAge = 0;
+  private int $maxAge = 0;
+
+
+  public function __construct(string $name, Category $category)
+  {
+    parent::__construct($name, $category);
+    $this->type = 'game';
   }
-
-  public function get_material(){
-    return $this->material;
-  }
-
-  public function set_age($_age){
-    $this->age = $_age;
-  }
-
-  public function get_age(){
-    return $this->age;
-  }
-
-  public function set_size($_size){
-    $this->size = $_size;
-  }
-
-  public function get_size(){
-    return $this->size;
-  }
-
-
-
-
 }
