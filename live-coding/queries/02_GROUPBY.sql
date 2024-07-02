@@ -1,0 +1,4 @@
+-- 1. Contare i corsi raggruppati per cfu
+-- 2. Contare gli studenti raggruppati per anno di nascita
+-- 3. Selezionare il voto più basso dato ad ogni appello d'esame
+-- 4. Contare gli appelli d'esame del mese di luglio raggruppati per giorno
